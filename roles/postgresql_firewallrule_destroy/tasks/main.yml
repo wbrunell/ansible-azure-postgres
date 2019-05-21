@@ -4,6 +4,6 @@
     resource_group: "{{ resource_group }}"
     server_name: "{{ postgresqlserver_name }}"
     name: rule1
-    start_ip_address: "{{ postgresql_firewallrule_start_ip }}"
-    end_ip_address: "{{ postgresql_firewallrule_start_ip }}"
+    #start_ip_address: "{{ postgresql_firewallrule_start_ip }}"
+    #end_ip_address: "{{ postgresql_firewallrule_start_ip }}"
     state: "{{ myaction }}"

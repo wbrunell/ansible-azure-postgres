@@ -7,12 +7,12 @@
     myaction: absent					# absent: destroy resources
     resource_group_name: test-rg
     resource_group: "{{ resource_group_name }}"
-    location: westeurope
+    #location: westeurope
     postgresqlserver_name: postgresql-03
     postgresqldb_name: db03
-    admin_username: psqladminun
-    admin_password: H@Sh1CoR3!
-    postgresql_firewallrule_start_ip: 178.197.231.128
+    #admin_username: postgres
+    #admin_password: postgres
+    #postgresql_firewallrule_start_ip: 178.197.231.128
   roles:
     - postgresql_firewallrule_destroy
     - postgresql_database_destroy
