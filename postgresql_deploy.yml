@@ -1,0 +1,20 @@
+# Description
+# ===========
+# This playbook create a PostgreSQL server and an instance of PostgreSQL Database
+---
+- hosts: localhost
+  vars:
+    myaction: present						# present: Deploy resources
+    resource_group_name: test-rg
+    resource_group: "{{ resource_group_name }}"
+    location: westeurope
+    postgresqlserver_name: postgresql-03
+    postgresqldb_name: db03
+    admin_username: postgres
+    admin_password: H@Sh1CoR3!
+    postgresql_firewallrule_start_ip: 178.197.231.128
+  roles:
+    - azure_rg_deploy
+    - postgresql_server_deploy
+    - postgresql_database_deploy
+    - postgresql_firewallrule_deploy

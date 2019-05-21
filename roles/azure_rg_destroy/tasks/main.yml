@@ -1,0 +1,6 @@
+---
+- name: Resource group
+  azure_rm_resourcegroup:
+    name: "{{ resource_group }}"
+    location: "{{ location }}"
+    state: "{{ myaction }}"

@@ -1,0 +1,7 @@
+---
+- name: Instance of PostgreSQL Database
+  azure_rm_postgresqldatabase:
+    resource_group: "{{ resource_group }}"
+    server_name: "{{ postgresqlserver_name }}"
+    name: "{{ postgresqldb_name }}"
+    state: "{{ myaction }}"
