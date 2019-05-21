@@ -11,7 +11,7 @@
     postgresqlserver_name: postgresql-03
     postgresqldb_name: db03
     admin_username: postgres
-    admin_password: Apostgres!
+    admin_password: Abcpasswordxyz12!
     postgresql_firewallrule_start_ip: 178.197.231.135
   roles:
     - azure_rg_deploy
