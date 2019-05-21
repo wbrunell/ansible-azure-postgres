@@ -1,6 +1,6 @@
 # Description
 # ===========
-# This playbook create a PostgreSQL server and an instance of PostgreSQL Database
+# This playbook creates a PostgreSQL server and an instance of PostgreSQL Database
 ---
 - hosts: localhost
   vars:
@@ -11,8 +11,8 @@
     postgresqlserver_name: postgresql-03
     postgresqldb_name: db03
     admin_username: postgres
-    admin_password: H@Sh1CoR3!
-    postgresql_firewallrule_start_ip: 178.197.231.128
+    admin_password: postgres
+    postgresql_firewallrule_start_ip: 178.197.231.135
   roles:
     - azure_rg_deploy
     - postgresql_server_deploy
