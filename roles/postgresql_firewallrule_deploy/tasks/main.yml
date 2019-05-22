@@ -5,5 +5,5 @@
     server_name: "{{ postgresqlserver_name }}"
     name: rule1
     start_ip_address: "{{ postgresql_firewallrule_start_ip }}"
-    end_ip_address: "{{ postgresql_firewallrule_start_ip }}"
+    end_ip_address: "{{ postgresql_firewallrule_end_ip }}"
     state: "{{ myaction }}"
