@@ -1,4 +1,10 @@
 ---
+- name: List RG components
+  azure_rm_resourcegroup_facts:
+    name: "{{ resource_group }}"
+    list_resources: yes
+  register: rg_result
+# - debug: var=rg_result verbosity=1
 - name: Resource group
   azure_rm_resourcegroup:
     name: "{{ resource_group }}"
