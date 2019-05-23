@@ -1,18 +1,22 @@
 # Description
 # ===========
 # This playbook destroys a PostgreSQL server and an instance of PostgreSQL Database
+# Parameters :
+#	rg_name
+#  	az_location
+#	pg_srv_name
+#	db_name
+# How to execute
+# 	ansible-playbook postgresql_destroy.yml -e rg_name=myrg -e az_location=westeurope
+
 ---
 - hosts: localhost
   vars:
     myaction: absent					# absent: destroy resources
-    resource_group_name: test-rg
-    resource_group: "{{ resource_group_name }}"
-    #location: westeurope
-    postgresqlserver_name: postgresql-03
-    postgresqldb_name: db03
-    #admin_username: postgres
-    #admin_password: XXXXXXXX
-    #postgresql_firewallrule_start_ip: 178.197.231.128
+    resource_group: "{{ rg_name |default('test-rg')}}"
+    #location: "{{ az_location |default('westeurope')}}"
+    postgresqlserver_name: "{{ pg_srv_name |default('postgresql-03')}}" 
+    postgresqldb_name: "{{ db_name |default('db03')}}"
   roles:
     - postgresql_firewallrule_destroy
     - postgresql_database_destroy

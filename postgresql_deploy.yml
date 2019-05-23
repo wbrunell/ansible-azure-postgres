@@ -1,15 +1,25 @@
 # Description
 # ===========
-# This playbook creates a PostgreSQL server and an instance of PostgreSQL Database
+# This playbook creates 
+#	- a PostgreSQL server 
+#	- an Instance 'postgres'
+# 	- an additional Instance 'db03'
+#	- a Firewall rule which allows access from define IP-range
+# Parameters :
+#	rg_name
+#  	az_location
+#	pg_srv_name
+#	db_name
+# How to execute
+# 	ansible-playbook postgresql_deploy.yml -e rg_name=myrg -e az_location=westeurope
 ---
 - hosts: localhost
   vars:
     myaction: present						# present: Deploy resources
-    resource_group_name: test-rg
-    resource_group: "{{ resource_group_name }}"
-    location: westeurope
-    postgresqlserver_name: postgresql-03
-    postgresqldb_name: db03
+    resource_group: "{{ rg_name |default('test-rg')}}"
+    location: "{{ az_location |default('westeurope')}}"
+    postgresqlserver_name: "{{ pg_srv_name |default('postgresql-03')}}" 
+    postgresqldb_name: "{{ db_name |default('db03')}}"
     admin_username: postgres
     admin_password: Abcpasswordxyz12!
     postgresql_firewallrule_start_ip: 178.197.231.10
