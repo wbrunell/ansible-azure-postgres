@@ -1,0 +1,12 @@
+---
+# This role deploys a Subnet within a Vnet
+# Parameters :
+#       resource_group
+#       vnetwork_name
+#       name
+- name: Delete a subnet
+  azure_rm_subnet:
+    resource_group: "{{ resource_group }}"
+    virtual_network_name: "{{ vnetwork_name }}"
+    name: "{{ name }}"
+    state: absent

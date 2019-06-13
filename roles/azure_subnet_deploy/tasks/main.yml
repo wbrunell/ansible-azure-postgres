@@ -1,0 +1,13 @@
+---
+# This role deploys a Subnet within a Vnet
+# Parameters :
+#       resource_group
+#       vnetwork_name
+#	address_prefixes_cidr
+#       name
+- name: Create a subnet
+  azure_rm_subnet:
+    resource_group: "{{ resource_group }}"
+    virtual_network_name: "{{ vnetwork_name }}"
+    name: "{{ name }}"
+    address_prefix_cidr: "{{ address_prefixes_cidr }}"

@@ -1,0 +1,17 @@
+# Description
+# ===========
+# This playbook destroys a Subnet within a Vnet
+# Parameters :
+#	rg_name
+#       vnet_name
+#	subnet_name
+# How to execute
+# 	ansible-playbook <playbook-file> -e rg_name=myrg -e vnet-name=vnet1 ..
+---
+- hosts: localhost
+  vars:
+    resource_group: "{{ rg_name |default('test-rg')}}"
+    vnetwork_name: "{{ vnet_name |default('spoke100-vnet')}}"
+    name: "{{ subnet_name |default('subnet')}}"
+  roles:
+    - azure_subnet_destroy
