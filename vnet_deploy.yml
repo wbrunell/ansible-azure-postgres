@@ -1,0 +1,23 @@
+# Description
+# ===========
+# This playbook deploys a VNET within an RG
+# Parameters :
+#	rg_name
+#       vnet_name
+# How to execute
+# 	ansible-playbook <playbook-file> -e rg_name=myrg vnet-name=vnet1
+
+---
+- hosts: localhost
+  vars:
+    myaction: present					# absent: destroy resources
+    resource_group: "{{ rg_name |default('test-rg')}}"
+    vnetwork_name: "{{ vnet_name |default('spoke100-vnet')}}"
+    address_prefixes_cidr:
+        - "10.1.0.0/16"
+        - "172.100.0.0/16"
+    dns_servers:
+        - "127.0.0.1"
+        - "127.0.0.2"
+  roles:
+    - azure_vnet_deploy

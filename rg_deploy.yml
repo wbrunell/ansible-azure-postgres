@@ -1,15 +1,17 @@
 # Description
 # ===========
-# This playbook destroys an RG 
+# This playbook deploys an RG
 # Parameters :
 #	rg_name
+#	dest_location
 # How to execute
 # 	ansible-playbook postgresql_destroy.yml -e rg_name=myrg 
 
 ---
 - hosts: localhost
   vars:
-    myaction: absent					# absent: destroy resources
+    myaction: present					# absent: destroy resources
     resource_group: "{{ rg_name |default('test-rg')}}"
+    location: "{{ dest_location |default('eastus')}}"
   roles:
-    - azure_rg_destroy
+    - azure_rg_deploy

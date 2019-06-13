@@ -9,3 +9,4 @@
   azure_rm_resourcegroup:
     name: "{{ resource_group }}"
     state: "{{ myaction }}"
+    force_delete_nonempty: false		# true would remove RG even though resources exist in it!

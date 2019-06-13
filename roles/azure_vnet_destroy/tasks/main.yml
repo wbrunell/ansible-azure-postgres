@@ -1,0 +1,11 @@
+---
+# This role destroys a VNET within an RG
+# Parameters :
+#       resource_group
+#       vnetwork_name
+
+- name: Delete a virtual network
+  azure_rm_virtualnetwork:
+    resource_group: "{{ resource_group }}"
+    name: "{{ vnetwork_name }}"
+    state: absent

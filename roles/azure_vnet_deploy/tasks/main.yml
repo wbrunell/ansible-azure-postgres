@@ -1,0 +1,18 @@
+---
+# This playbook deploys a VNET within an RG
+# Parameters :
+#       resource_group
+#       vnetwork_name
+- name: Create a virtual network
+  azure_rm_virtualnetwork:
+    resource_group: "{{ resource_group }}"
+    name: "{{ vnetwork_name }}"
+    address_prefixes_cidr: "{{ address_prefixes_cidr }}"
+    dns_servers: "{{ dns_servers }}"
+#    address_prefixes_cidr:
+#        - "10.1.0.0/16"
+#        - "172.100.0.0/16"
+#    dns_servers:
+#        - "127.0.0.1"
+#        - "127.0.0.2"
+

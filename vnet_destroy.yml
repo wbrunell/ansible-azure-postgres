@@ -1,0 +1,17 @@
+# Description
+# ===========
+# This playbook destroys a VNET within an RG
+# Parameters :
+#	rg_name
+#       vnet_name
+# How to execute
+# 	ansible-playbook <playbook-file> -e rg_name=myrg vnet_name=vnet1
+
+---
+- hosts: localhost
+  vars:
+    myaction: present					# absent: destroy resources
+    resource_group: "{{ rg_name |default('test-rg')}}"
+    vnetwork_name: "{{ vnet_name |default('spoke100-vnet')}}"
+  roles:
+    - azure_vnet_destroy
